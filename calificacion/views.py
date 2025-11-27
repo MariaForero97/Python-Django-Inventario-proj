@@ -33,6 +33,12 @@ def home(request):
 
     return render(request, 'calificacion/formulario.html', {'form': form})
 
+
+def lista_calificaciones(request):
+    calificaciones = Calificacion.objects.all()
+    return render(request, 'calificacion/lista.html', {'calificaciones': calificaciones})
+
+
 def lista_firebase(request):
     if db is None:
         return render(request, "calificacion/lista_firebase.html", {
