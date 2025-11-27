@@ -1,7 +1,12 @@
 {% extends "base.html" %}
+
 {% block content %}
 
 <h2>Calificaciones desde Firebase</h2>
+
+{% if error %}
+  <p style="color:red;">{{ error }}</p>
+{% endif %}
 
 {% if calificaciones %}
   <ul>
@@ -17,4 +22,5 @@
 {% endif %}
 
 <a href="{% url 'calificacion:home' %}">Registrar nueva</a>
+
 {% endblock %}
