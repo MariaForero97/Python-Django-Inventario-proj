@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Calificaciones desde Firebase</h2>
+
+{% if calificaciones %}
+  <ul>
+    {% for c in calificaciones %}
+      <li>
+        <strong>{{ c.nombre }}</strong> — {{ c.calificacion }}<br>
+        {{ c.comentario }}
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No hay calificaciones guardadas en Firebase.</p>
+{% endif %}
+
+<a href="{% url 'calificacion:home' %}">Registrar nueva</a>
+{% endblock %}

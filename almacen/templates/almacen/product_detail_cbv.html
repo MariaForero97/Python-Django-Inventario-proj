@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>{{ product.name }} (CBV)</h2>
+<p>SKU: {{ product.sku }}</p>
+<p>Categoría: {{ product.category.name }}</p>
+<p>Cantidad: {{ product.quantity }}</p>
+<p>Precio: ${{ product.price }}</p>
+<p>{{ product.description }}</p>
+<a href="{% url 'almacen:product_list_cbv' %}">Volver a la lista (CBV)</a>
+{% endblock %}

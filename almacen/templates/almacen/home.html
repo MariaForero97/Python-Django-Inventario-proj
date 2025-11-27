@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Listado de productos{% endblock %}
+{% block content %}
+<h2>Productos</h2>
+
+<form method="get" class="search">
+  <input type="text" name="q" placeholder="Buscar..." value="{{ request.GET.q }}">
+  <button>Buscar</button>
+</form>
+
+<table class="products">
+  <thead>
+    <tr><th>Nombre</th><th>SKU</th><th>Categoría</th><th>Cantidad</th><th>Precio</th><th></th></tr>
+  </thead>
+  <tbody>
+    {% for p in products %}
+      <tr>
+        <td><a href="{% url 'almacen:product_detail' p.pk %}">{{ p.name }}</a></td>
+        <td>{{ p.sku }}</td>
+        <td><a href="{% url 'almacen:products_by_category' p.category.id %}">{{ p.category.name }}</a></td>
+        <td>{{ p.quantity }}</td>
+        <td>{{ p.price }}</td>
+        <td>
+          <a href="{% url 'almacen:product_update' p.pk %}">Editar</a> |
+          <a href="{% url 'almacen:product_delete' p.pk %}">Borrar</a>
+        </td>
+      </tr>
+    {% empty %}
+      <tr><td colspan="6">No hay productos.</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

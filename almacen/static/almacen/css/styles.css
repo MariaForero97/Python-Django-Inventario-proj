@@ -1,0 +1,27 @@
+:root{
+  --green-1: #054a29;
+  --green-2: #0a6b3a;
+  --green-3: #79c06a;
+  --bg: #f6fbf6;
+  --muted: #6b6b6b;
+}
+
+body{ font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial; background:var(--bg); color:#0b2d18; margin:0;}
+.container{ max-width:1000px; margin:0 auto; padding:16px;}
+.site-header{ background: linear-gradient(90deg,var(--green-1),var(--green-2)); color:white; padding:12px 0; }
+.site-header h1{ margin:0; font-size:1.4rem; padding-left:8px; display:inline-block;}
+.site-header a{ color:white; text-decoration:none; }
+.site-header nav{ float:right; margin-right:8px; }
+.site-header nav a{ color: #e9f7ee; margin-left:10px; text-decoration:none; }
+
+.products{ width:100%; border-collapse:collapse; margin-top:12px;}
+.products th, .products td{ padding:8px 10px; border-bottom:1px solid #e0e0e0; text-align:left;}
+.products tr:hover{ background: #f0fff2; }
+
+button{ background:var(--green-2); color:white; border:none; padding:8px 12px; border-radius:6px; cursor:pointer;}
+button:hover{ background:var(--green-1); }
+
+.messages{ list-style:none; padding:0; }
+.msg{ padding:8px; margin-bottom:8px; border-radius:6px;}
+.msg.success{ background:#e6f8ea; color:var(--green-1); border:1px solid #cde9d0; }
+.not-found{ text-align:center; padding:40px; background:white; border-radius:8px; }

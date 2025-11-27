@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+  <h2>Registrar Calificación</h2>
+
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <!-- Botón para guardar en SQLite -->
+    <button type="submit" name="accion" value="local">Guardar</button>
+
+    <!-- Botón para guardar en Firebase -->
+    <button type="submit" name="accion" value="firebase">Guardar en Firebase</button>
+  </form>
+
+  <p><a href="{% url 'calificacion:lista' %}">Ver calificaciones</a></p>
+
+
+</div>
+
+{% endblock %}

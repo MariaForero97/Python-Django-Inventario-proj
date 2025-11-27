@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>{{ product.name }}</h2>
+
+<p>SKU: {{ product.sku }}</p>
+<p>Categoría: 
+  <a href="{% url 'almacen:products_by_category' product.category.id %}">
+    {{ product.category.name }}
+  </a>
+</p>
+<p>Cantidad: {{ product.quantity }}</p>
+<p>Precio: ${{ product.price }}</p>
+
+<p>{{ product.description }}</p>
+
+<a href="{% url 'almacen:product_update' product.pk %}">Editar</a> |
+<a href="{% url 'almacen:product_delete' product.pk %}">Eliminar</a> |
+<a href="{% url 'almacen:home' %}">Volver al inventario</a>
+{% endblock %}

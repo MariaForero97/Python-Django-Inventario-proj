@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>{{ action }} producto</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">{{ action }}</button>
+  <a href="{% url 'almacen:home' %}">Cancelar</a>
+</form>
+{% endblock %}

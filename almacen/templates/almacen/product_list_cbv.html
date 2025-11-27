@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Lista de productos (CBV)</h2>
+<ul>
+  {% for p in products %}
+    <li>
+      <a href="{% url 'almacen:product_detail_cbv' p.pk %}">
+        {{ p.name }} - ${{ p.price }}
+      </a>
+    </li>
+  {% endfor %}
+</ul>
+
+
+{% endblock %}

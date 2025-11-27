@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+  <h2>Lista de Calificaciones</h2>
+
+  {% if calificaciones %}
+    <ul>
+      {% for c in calificaciones %}
+        <li>
+          <strong>{{ c.nombre }}</strong> — <em>Calificación:</em> {{ c.calificacion }}/10<br>
+          <small>{{ c.comentario }}</small>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No hay calificaciones registradas aún.</p>
+  {% endif %}
+
+  <p><a href="{% url 'calificacion:home' %}">Registrar nueva calificación</a></p>
+
+    <p>
+  <a href="{% url 'calificacion:lista_firebase' %}">
+    Ver calificaciones desde Firebase
+  </a>
+  </p>
+</div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Inventario{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'almacen/css/styles.css' %}">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1><a href="{% url 'almacen:home' %}">Mi Inventario</a></h1>
+      <nav>
+        <!-- 🔹 Enlaces de Almacén -->
+        <a href="{% url 'almacen:product_create' %}">Agregar producto</a> |
+        <a href="{% url 'almacen:category_create' %}">Agregar categoría</a> |
+
+        <!-- 🔹 Enlaces de Calificación -->
+        <a href="{% url 'calificacion:home' %}">Registrar calificación</a> |
+        <a href="{% url 'calificacion:lista' %}">Ver calificaciones</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    {% if messages %}
+      <ul class="messages">
+        {% for m in messages %}
+          <li class="msg {{ m.tags }}">{{ m }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>Inventario - Maria Forero · Hecho con ❤️</small>
+    </div>
+  </footer>
+</body>
+</html>
